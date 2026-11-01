@@ -1,0 +1,27 @@
+# Simple Reflex Agent for Vacuum Cleaner World
+
+def vacuum_agent(location, status):
+    if status == "Dirty":
+        return "Suck"
+    elif location == "A":
+        return "Move Right"
+    else:
+        return "Move Left"
+
+rooms = {"A": "Dirty", "B": "Clean"}
+location = "A"
+
+for i in range(4):
+    print("Location:", location, "| Status:", rooms[location])
+
+    action = vacuum_agent(location, rooms[location])
+    print("Action:", action)
+
+    if action == "Suck":
+        rooms[location] = "Clean"
+    elif action == "Move Right":
+        location = "B"
+    elif action == "Move Left":
+        location = "A"
+
+    print()
